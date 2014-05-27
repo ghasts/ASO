@@ -1,0 +1,37 @@
+<html>
+ <head>
+	<meta charset="UTF-8">
+	<title>新規登録</title>
+ </head>
+	<body>
+	<h1>新規登録</h1>
+	<form>
+	氏名
+	<input type="text" size = "30" name="a">
+	<br>
+	性別　
+	男<input type="radio" name="sex" value="man">　
+	女<input type="radio" name="sex" value="woman">
+	<br>
+	電話番号
+	<input type="text" size="30" name="a">
+	<br>
+	Eメールアドレス
+	<input type="text" size="30" name="b">
+	<br>
+	Password
+	<input type="text" size="30" name="c">
+	<script src="http://ajaxzip3.googlecode.com/svn/trunk/ajaxzip3/ajaxzip3.js" charset="UTF-8"></script>
+	<br />
+	郵便番号 <input onkeyup="AjaxZip3.zip2addr(this,'','addr1','addr1',
+	'addr2','addr2');" name="zip" size="10" type="text" /><br />
+	住所１<input name="addr1" size="30" type="text" /><br />
+	住所２<input name="addr2" size="30" type="text" /><br />
+	その他<input type="text" size="30"><br>
+	<input type="button" value="会員登録" onclick="">
+	<input type="reset" value="キャンセル">
+	</form>
+
+	
+	</body>
+</html>

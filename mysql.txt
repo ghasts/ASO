@@ -1,2 +1,12 @@
 ﻿user:adios password:lovelive
 db:adios
+
+ソース
+$link = mysql_connect('172.20.17.216', 'adios', 'lovelive');
+if (!$link) {
+    die('接続失敗です。'.mysql_error());
+}
+
+// MySQLに対する処理
+
+mysql_close($link);

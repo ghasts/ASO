@@ -4,6 +4,18 @@
 
 <?php
 $uname = $_POST["uname"];
+$email = $_POST["email"];
+$sex = $_POST["sex"];
+$tellno = $_POST["tellno"];
+$pass = $_POST["pass1"];
+$zip = $_POST["zip"];
+$addr1 = $_POST["addr1"];
+$addr2 = $_POST["addr2"];
+$addr3 = $_POST["addr3"];
+
+
+
+
 require_once 'DB.php';
 
 $dsn = 'mysqli://adios:lovelive@172.20.17.216/adios';
@@ -15,10 +27,7 @@ if (PEAR::isError($db)) {
 
 print('接続に成功しました<br>');
 
-//$db->query('SET NAMES sjis');
-//if (PEAR::isError($db)) {
-//    die($db->getMessage());
-//}
+
 
 $sql = 'select * from test';
 $res =& $db->query($sql);
@@ -40,19 +49,7 @@ if (PEAR::isError($res)) {
     die($res->getMessage());
 }
 
-$data = array($uname,'my', 'エアコン');
-$db->execute($stmt, $data);
-if (PEAR::isError($res)) {
-    die($res->getMessage());
-}
-
-$data = array('ccc','sql', '扇風機');
-$db->execute($stmt, $data);
-if (PEAR::isError($res)) {
-    die($res->getMessage());
-}
-
-$data = array('ddd','php', '空気清浄機');
+$data = array($uname,$email,$tellno);
 $db->execute($stmt, $data);
 if (PEAR::isError($res)) {
     die($res->getMessage());

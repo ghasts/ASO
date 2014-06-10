@@ -7,11 +7,13 @@ $uname = $_POST["uname"];
 $email = $_POST["email"];
 $sex = $_POST["sex"];
 $tellno = $_POST["tellno"];
-$pass = $_POST["pass1"];
+$pass1 = $_POST["pass1"];
 $zip = $_POST["zip"];
 $addr1 = $_POST["addr1"];
 $addr2 = $_POST["addr2"];
 $addr3 = $_POST["addr3"];
+
+$addr = $addr1.$addr2.$addr3;
 
 
 
@@ -25,48 +27,38 @@ if (PEAR::isError($db)) {
     die($db->getMessage());
 }
 
-print('接続に成功しました<br>');
 
 
-
-$sql = 'select * from test';
+$sql = 'select * from account';
 $res =& $db->query($sql);
 if (PEAR::isError($res)) {
     die($res->getMessage());
 }
 
-while ($row =& $res->fetchRow(DB_FETCHMODE_OBJECT)){
-    print($row->id);
-    print($row->pass);
-    print($row->name.'<br>');
-}
 
 print('<br>データを追加します。<br><br>');
 
-$sql = "insert into test (id,pass,name) VALUES (?,?,?)";
+$sql = "update account set accname=?, pw=?, mail=?, sex=?, zip=?, address=?, phone=? where acccode=?";
 $stmt = $db->prepare($sql);
 if (PEAR::isError($res)) {
     die($res->getMessage());
 }
 
-$data = array($uname,$email,$tellno);
+$data = array($uname,$pass1,$email,$sex,$zip,$addr,$tellno);
 $db->execute($stmt, $data);
 if (PEAR::isError($res)) {
     die($res->getMessage());
 }
 
-print('<br>追加後のデータを取得します。<br><br>');
 
-$sql = 'select * from test';
+
+$sql = 'select * from account';
 $res =& $db->query($sql);
 if (PEAR::isError($res)) {
     die($res->getMessage());
 }
 
-while ($row =& $res->fetchRow(DB_FETCHMODE_OBJECT)){
-    print($row->id);
-    print($row->name.'<br>');
-}
+
 
 $db->disconnect();
 

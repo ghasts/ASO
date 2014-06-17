@@ -7,7 +7,7 @@
 <!--
 function chkHissu(frm){
         /* 必須入力のname属性 */
-        var hissu=Array("uname","sex","email","pass1","pass2","zip","addr1","addr2","teelno");
+        var hissu=Array("uname","sex","email","pass1","pass2","zip","addr1","addr2","tellno");
         /* アラート表示用 */
         var hissu_nm = Array("名前","性別","メールアドレス","パスワード","パスワード","郵便番号","都道府県 市区群","町村 番地","電話番号");
         /* 必須入力の数 */
@@ -35,12 +35,34 @@ function chkHissu(frm){
                     return false;
                 }
             }
+			
+
+			if (!document.form1.email.value.match(/^[A-Za-z0-9]+[\w-]+@[\w\.-]+\.\w{2,}$/)){
+			/*メールアドレスが不正の場合*/
+			alert("メールアドレスをご確認ください。");
+			return false;
+			}
+
+			if(document.form1.pass1.value.length < 8){
+				/*パスワードが８文字以下の場合はfalseを返してフォームを送信しない */
+				alert("パスワードの文字数が不正です");
+				return false;
+      		  }
 
 			if(document.form1.pass1.value != document.form1.pass2.value){
+				/*パスワードと確認用パスワードが一致しない場合はfalseを返してフォームを送信しない */
 				alert("再確認用パスワードが一致しません");
 				return false;
 			}
-        }
+			
+		
+
+            if(document.form1.tellno.value.length < 10 || document.form1.tellno.value.length >11){
+				/*電話番号の桁が10または11でない場合*/
+				alert("電話番号の桁が不正です");
+				return false;
+		}
+}
         /* 必須入力項目が全て入力されている場合はtrueを返してフォーム送信 */
         return true;
     }
@@ -110,7 +132,7 @@ function chkHissu(frm){
 			</tr>
 			<tr>
 				<td>お電話番号</td>
-				<td><input name="tellno" type="text" maxlength="10">
+				<td><input name="tellno" type="text" maxlength="11">
 				<br />	（例）0300000000
 
 				</td>

@@ -1,0 +1,3 @@
+select sum(volume*price) from detail join goods on detail.goodscode=goods.goodscode
+join stock on goods.stockcode=stock.stockcode join buy on detail.ordercode=buy.ordercode
+where buy.date='2014-06-17';

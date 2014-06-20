@@ -3,6 +3,9 @@
 <body>
 
 <?php
+session_start();
+//セッションスタート。
+
 $uname = $_POST["uname"];
 $email = $_POST["email"];
 $sex = $_POST["sex"];
@@ -38,13 +41,16 @@ if (PEAR::isError($res)) {
 
 print('<br>データを追加します。<br><br>');
 
+
+
 $sql = "update account set accname=?, pw=?, mail=?, sex=?, zip=?, address=?, phone=? where acccode=?";
 $stmt = $db->prepare($sql);
 if (PEAR::isError($res)) {
     die($res->getMessage());
 }
 
-$data = array($uname,$pass1,$email,$sex,$zip,$addr,$tellno);
+$data = array($uname,$pass1,$email,$sex,$zip,$addr,$tellno,$_SESSION['acccode']);
+//acccodeの追加。変更者nakano
 $db->execute($stmt, $data);
 if (PEAR::isError($res)) {
     die($res->getMessage());

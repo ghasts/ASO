@@ -1,0 +1,4 @@
+session_start();
+
+//セッション取得用変数。
+$_SESSION['acccode']

@@ -30,7 +30,7 @@ $kind = htmlspecialchars($_GET["kind"], ENT_QUOTES,"UTF-8");
 if($wflag == 0){
 
 
-$sql = 'select goods.dispflag,goods.goods,goods.kind,goods.size,stock.stock,stock.price from goods left outer join stock on  goods.stockcode = stock.stockcode where kind = \'スニーカー\' ';
+$sql = 'select goods.dispflag,goods.goods,goods.kind,goods.size,stock.stock,stock.price from goods left outer join stock on  goods.stockcode = stock.stockcode where kind = \'キッズ\' ';
 
 
 $word = '%'.$word.'%';
@@ -45,7 +45,7 @@ $disp=1;
 //検索ワードの変数をwordと設定する。wflagというフラグが１の時検索を実行。
 
 
-$sql = 'select goods.dispflag,goods.goods,goods.kind,goods.size,stock.stock,stock.price from goods left outer join stock on  goods.stockcode = stock.stockcode where kind = \'スニーカー\' and goods like ? ';
+$sql = 'select goods.dispflag,goods.goods,goods.kind,goods.size,stock.stock,stock.price from goods left outer join stock on  goods.stockcode = stock.stockcode where kind = \'キッズ\' and goods like ? ';
 
 
 $word = '%'.$word.'%';
@@ -102,7 +102,7 @@ $(function(){
          <div id="gnavi">
             <ul>
             <li><?php print("テストナウ.");?>様</li><br> 
-            <form name="searchform1" id="searchform1" method="get" action="sneakers.php">
+            <form name="searchform1" id="searchform1" method="get" action="kids.php">
 			<input name="word" id="keywords1" value="" type="text" />
 			<input type="image" src="../img/images/btn1.gif" alt="検索" name="searchBtn1" id="searchBtn1" />
             <input type="submit" value="詳細検索" />
@@ -168,7 +168,7 @@ if($result['dispflag'] == 0){
       <div id="sub">
          <div class="section">
             <h2>カテゴリから探す</h2>
-           <ul>
+            <ul>
                <li><a href="sneakers.php">スニーカー</a></li>
                <li><a href="sandals.php">サンダル</a></li>
                <li><a href="rezer.php">レザーシューズ</a></li>

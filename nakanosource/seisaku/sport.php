@@ -16,7 +16,26 @@ $dsn = 'mysql:dbname=adios;host=172.20.17.216';
 try{
 	$dbh = new PDO($dsn, $user, $password);
 	  $dbh->query('SET NAMES utf8');
-
+	 //ユーザー取得用
+	  if(isset($_COOKIE['email'])){
+	  $sql = 'select accname from account where mail = ?';
+	  $stmt = $dbh->prepare($sql);
+	  $stmt -> execute(array($_COOKIE['email']));
+	  $result = $stmt->fetch(PDO::FETCH_ASSOC);
+	  $accname = $result['accname'];
+	  $acflag = 1;
+	  }else if(isset($_SESSION['acccode'])){
+	  $sql = 'select accname from account where acccode = ?';
+	  $stmt = $dbh->prepare($sql);
+	  $stmt -> execute(array($_SESSION['acccode']));
+	  $result = $stmt->fetch(PDO::FETCH_ASSOC);
+	  $accname = $result['accname'];
+	  $acflag = 1;
+	  }else{
+		  $acflag = 0;
+	
+	  }
+	  
 
 
 if(isset($_GET["word"])){
@@ -101,7 +120,8 @@ $(function(){
          </div>
          <div id="gnavi">
             <ul>
-            <li><?php print("テストナウ.");?>様</li><br> 
+              <?php if($acflag != 0){ print($accname."様");}else{print("ログインされていません。");?>
+            <a href="login.php">ログインはこちらをクリック。</a><?php } ?><br> 
             <form name="searchform1" id="searchform1" method="get" action="sport.php">
 			<input name="word" id="keywords1" value="" type="text" />
 			<input type="image" src="../img/images/btn1.gif" alt="検索" name="searchBtn1" id="searchBtn1" />

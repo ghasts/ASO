@@ -29,7 +29,7 @@ $pass = MD5($pass);
 
 
 
-//ここはまだまだですよー。一応クッキーへの保存への対処です。
+
 $host = '172.20.17.216';
 $user = 'adios';
 $password = 'lovelive';
@@ -65,7 +65,7 @@ if($mailadd == $mail and MD5($password) == $pass){
 print('ログイン成功..ようこそ'.$name.'さん！　<BR>');
 
 session_regenerate_id(TRUE);
-$_SESSION['acccode'] = $acccode;
+//$_SESSION['acccode'] = $acccode;
 
 if(isset($_POST['save'])){
 //ﾁｪｯｸボックスにONが入っていたときに保存するような処理ですねこれ。
@@ -120,6 +120,23 @@ print("うぉーにん！不正なアクセスが行われました。");
 <input type="button" value="検索画面" onClick="location.href='/oresource/seisaku/goods.php'
 ">
 
+<div id="sub">
+         <div class="section">
+            <h2>カテゴリから探す</h2>
+           <ul>
+               <li><a href="sneakers.php">スニーカー</a></li>
+               <li><a href="sandals.php">サンダル</a></li>
+               <li><a href="rezer.php">レザーシューズ</a></li>
+               <li><a href="business.php">ビジネスシューズ</a></li>
+               <li><a href="rofer.php">ローファー</a></li>
+               <li><a href="panpus.php">パンプス</a></li>
+               <li><a href="bute.php">ブーツ</a></li>
+               <li><a href="sport.php">スポーツシューズ</a></li>
+               <li><a href="walk.php">ウォーキング</a></li>
+               <li><a href="kids.php">キッズ</a></li>
+　　　　　　　          </ul>
+         </div><!-- /.section -->
+       </div><!-- /#sub -->
 
 
 </body>

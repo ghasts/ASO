@@ -1,0 +1,19 @@
+try{
+	$dbh = new PDO($dsn, $user, $password);
+	  $dbh->query('SET NAMES utf8');
+
+$sql = ('SELECT acccode,accname,pw,mail from account where mail =?');
+$stmt = $dbh->prepare($sql);
+$stmt -> execute(array($mail));
+
+while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
+
+ $acccode = ($result['acccode']);
+}
+
+
+$_SESSION['acccode'] = $acccode;
+}catch (PDOException $e){
+    print('Error:'.$e->getMessage());
+    die();
+}

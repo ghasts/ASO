@@ -14,6 +14,7 @@
 $filepath = 'C:/xampp/htdocs/aso/images/';
 $upfile = $filepath.basename($_FILES['userfile']['name']);
 if(move_uploaded_file($_FILES['userfile']['tmp_name'],$upfile)){
+//insert 
 print(basename($_FILES['userfile']['name']).'のアップロードが正常に行われました。');
 
 }else{

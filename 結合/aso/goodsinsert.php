@@ -12,6 +12,7 @@ $goods=$_POST["goods"];
 $kind=$_POST["kind"];
 $price=$_POST["price"];
 $size=$_POST["size"];
+$descript=$_POST["descript"];
 $stockcode='';
 $dsn = 'mysqli://adios:lovelive@172.20.17.216/adios';
 $db = DB::connect($dsn);
@@ -56,7 +57,7 @@ if (PEAR::isError($res)) {
     die($res->getMessage());
 }
 
-$data = array($goods,$kind,$size,$stockcode);
+$data = array($goods,$kind,$size,'');
 $db->execute($stmt, $data);
 if (PEAR::isError($res)) {
     die($res->getMessage());

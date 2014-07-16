@@ -9,5 +9,10 @@
 <p><input type="file" name="userfile"></p>
 <p><input type="submit" value="送信"></p>
 </form>
+<img src="C:/xammp/htdocs/aso/images/lovelive2.jpg" alt="イラスト1">
+<?php 
+$test="C:/xammp/htdocs/aso/images/lovelive2.jpg";
+print(substr($test,15));
+?>
 </body>
 </html>

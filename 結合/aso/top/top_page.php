@@ -8,7 +8,7 @@
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <link rel="stylesheet" href="../css/top_page.css" type="text/css" />
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<script type="text/javascript" src="/aso/js/jquery-1.5.2.min.js"></script>
 <script type="text/javascript">
 $(function(){
     var setImg = '#viewer';
@@ -44,7 +44,9 @@ try{
 	$dbh = new PDO($dsn, $user, $password);
 //	  $dbh->query('SET NAMES utf8');
 $name=null;
-$path=null;
+$pathreg=null;
+$pathacc=null;
+$logreg=null;
 $logacc=null;
 //$acccode=null;
 if(isset($_COOKIE["email"]) && isset($_COOKIE["password"])){
@@ -58,8 +60,10 @@ $acccode=null;
 	$_SESSION['acccode'] = $acccode;
 }
 if(isset($_SESSION['acccode'])){
-	$path="\"nakano/login.php\"";
-	$logacc="アカウント操作";
+	$pathreg="\"nakano/login.php\"";
+	$logreg="アカウント操作";
+	$pathacc="\"nakano/logout.php\"";
+	$logacc="ログアウト";
 
 	$sql = ('SELECT accname from account where acccode =?');
 	$stmt = $dbh->prepare($sql);
@@ -71,7 +75,9 @@ if(isset($_SESSION['acccode'])){
 
 }else{
 $name="ゲスト";
-$path="\"nakano/adios.php\"";
+$pathreg="\"./nakano/kaiintouroku.php\"";
+$logreg="新規登録";
+$pathacc="\"nakano/adios.php\"";
 $logacc="ログイン";
 }
 }catch (PDOException $e){
@@ -102,8 +108,8 @@ $logacc="ログイン";
    <div id="menu">
       <ul>
          <li class="home">
-         <a href="./nakano/kaiintouroku.php">新規登録</a></li>
-         <li><a href=<?php print($path); ?>><?php print($logacc); ?></a></li>
+         <a href=<?php print($pathreg); ?>><?php print($logreg) ?></a></li>
+         <li><a href=<?php print($pathacc); ?>><?php print($logacc); ?></a></li>
          <li><a href="sample2.html">ご利用案内</a></li>
          <li><a href="sample3.html">カートを見る</a></li>
          <li><a href="sample4.html">利用規約</a></li>

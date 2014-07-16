@@ -1,9 +1,16 @@
 <?php 
 //ini_set( "display_errors", "Off");
 //setcookie("cartq",0);
+session_start();
 if(!(isset($_COOKIE['cartq']))){
 	$_COOKIE['cartq'] = 0;
 }
+
+///////////////////////////////////////////
+//**　カート追加のためのコード ***********
+/////////////////////////////////////////
+
+if(isset($_POST['goodscode'])){
 
 		$kazu = $_COOKIE['cartq'];
 		
@@ -20,27 +27,12 @@ if(!(isset($_COOKIE['cartq']))){
 	setcookie("cartgc[$cset]",$gcode);
 	setcookie("cartgsize[$cset]",$_POST['goodssize']);
 	setcookie("cartgk[$cset]",$_POST['quant']);
+	$flag = 0;
+}
 	
-		
-/*		print($set.$var[7]);
-	if(!(isset($_COOKIE['cartgcode["$set"]']))){
-		print($_COOKIE['cartgcode['.$set.']']);
-		if($_COOKIE['cartgcode[$set]'] == $set){
-				 setcookie("cartgq[$set]",$_COOKIE['cartgq[$set])']+$_POST['quant']);
-		}else{
-		setcookie("cartlist[$kazu]",$set);
-		setcookie("cartgcode[$set]",$_POST['goodscode']);
-		setcookie("cartgsize[$set]",$_POST['goodssize']);
-		setcookie("cartgq[$set]",$_POST['quant']);
-		setcookie("cartq",$kazu+1);
-		$_POST = array();
-		}
-	}else{
-	 setcookie("cartgq[$set]",$_COOKIE['cartgq[$set])']+$_POST['quant']);
-	}
-
-*/
-
+///////////////////////////////////////////
+//** カート追加　処理ここまで。 **********
+//////////////////////////////////////////	
 
 
 //ini_set( "display_errors", "Off");
@@ -52,7 +44,7 @@ $db = 'adios';
 
 //フラグ変数領域
 $wflag = 0;
-session_start();
+
 
 
 $dsn = 'mysql:dbname=adios;host=enzerus.com';
@@ -94,6 +86,12 @@ $dsn = 'mysql:dbname=adios;host=enzerus.com';
 <head>
 <meta charset="utf-8">
 <title>cart</title>
+<script language="javascript">
+function change(){
+	alert("change!!");
+}
+
+</script>
 </head>
 
 <body>
@@ -115,14 +113,30 @@ $dsn = 'mysql:dbname=adios;host=enzerus.com';
  $glist = $_COOKIE['cartq'];
  $sumall = 0;
  
-
-	
-
-
-
+ print("loding!!");
+ 
 
 
 // ,$_COOKIE['$gsize'])
+if(!(isset($_COOKIE['cartgc']))){
+  print("カートには何も入ってないです。");
+?>
+
+<meta http-equiv="Refresh" content="10">
+<?php
+ }
+	else if (!(isset($_POST['goodscode']))){
+//カート情報がないとき。
+	print("カートには何も入ってないです。。。。");
+	
+	
+?>
+<meta http-equiv="Refresh" content="10">
+<?php
+	
+	
+	}else{
+// クッキーに商品の情報が入っているとき。
 foreach ($_COOKIE['cartgc'] as $key => $value) {
 	
 $gsizeAr = $_COOKIE['cartgsize'];	
@@ -141,18 +155,18 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
 <tr>
 	<th></th>
 	<th><?php print("")?> </th>
-    <th><?php print($result['goods']) ?></th>
+    <th><a href="details_of_goods.php?gcode=<?php print($result['goodscode'])?>"><?php print($result['goods']) ?></a></th>
     <th>&yen;<?php $price = $result['price'];  print($result['price']);?></th>
     <th><?php print($result['size']."cm")?></th>
     <th><input type="text" size="1" style="text-align:left" value="
-	<?php print($gquant)?>" name="数量">
-    <input type="button" value="変更" onClick=""></th>
+	<?php print($gquant)?>" name="<?php print($key) ?>">
+    <input type="button" value="変更" onClick="change()"></th>
     <th>&yen;<?php $sum = $price * $gquant; $sumall = $sumall + $sum; print($sum);?></th>
 	<th><input type="button" value="削除"></th>
 </tr> 
 <?php
 }
-
+}
 
 ?>
 <!--　カート　ループ　ここまで -->

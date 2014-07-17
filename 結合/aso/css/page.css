@@ -1,0 +1,304 @@
+@charset "UTF-8";
+
+
+/* ========BASIC======== */
+html {
+   overflow-y:scroll;
+}
+
+body {
+   margin:0;
+   padding:0;
+   line-height:1.6;
+   letter-spacing:1px;
+   font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+   font-size:12px;
+   color:#5A482B;
+   border-top:5px solid #9B0000;
+   background:#fff url("../img/images/bg_body.gif") 0 0 repeat-x;
+}
+
+br {
+   letter-spacing:normal;
+}
+
+a {
+   color:#5A482B;
+   text-decoration:none;
+}
+
+a:hover {
+   color:#C94C00;
+}
+
+img {
+   border:0;
+   vertical-align:bottom;
+}
+
+h1,h2,h3,h4,h5,h6 {
+   margin:0;
+}
+
+
+/* ========TEMPLATE LAYOUT======== */
+#headWrap {
+   position:relative;
+   width:100%;
+   margin:0 auto;
+   padding:10px 0;
+   background:#fff;
+}
+
+#header {
+   position:relative;
+   width:787px;
+   margin:0 auto;
+   background:#fff;
+}
+
+#pr {
+   position:absolute;
+   left:0;
+   top:0;
+   width:787px;
+}
+
+#gnavi {
+   position:absolute;
+   bottom:0;
+   right:0;
+}
+
+#searchform1 {
+	position: relative;
+}
+#keywords1	{
+	width: 160px;
+	height: 16px;
+	background: url("../img/images/search.png") no-repeat 8px 3px;
+	border: 1px solid #CCC;
+	padding: 2px 2px 2px 26px;
+}
+#searchBtn1	{
+	position: absolute;
+	top: 0;
+	left: 195px;
+}
+
+#menu {
+   width:100%;
+   float:left;
+   background:url("../img/images/bg_menu.gif") 0 0 repeat-x;
+}
+
+#icatch {
+   width:787px;
+   margin:0 auto 10px;
+   background:#fff;
+}
+
+
+#contents {
+   clear:both;
+   width:900px;
+   margin:0 auto;
+   padding:10px;
+   background:#fff;
+}
+#viewer {
+     float:right;
+  	 width:690px;
+}
+#viewer img {
+   position: absolute;
+}
+
+
+#sub {
+   float:left;
+   width:200px;
+}
+
+#pageTop {
+   clear:both;
+}
+
+#footMenu {
+   width:787px;
+   margin:0 auto;
+}
+
+#footer {
+   background:#EBEADD;
+   border-bottom:5px solid #9B0000;
+}
+
+
+/* ========HEADER CUSTOMIZE======== */
+#header h1 {
+   margin:0;
+   padding-top:25px;
+   font-size:32px;
+   color:#fff;
+   line-height:50px;
+}
+
+#header h1 a {
+   color:#9B0000;
+}
+
+#header h1 a:hover {
+   color:#D30000;
+}
+
+#header #pr p {
+   margin:0;
+   font-size:11px;
+}
+
+#header #gnavi ul {
+   list-style:none;
+}
+
+#header #gnavi li {
+   float:left;
+   font-size:11px;
+   margin-left:15px;
+}
+
+#header #gnavi li a {
+   display:block;
+}
+
+#header #gnavi .tel {
+   color:#C94C00;
+   font-size:24px;
+   font-weight:bold;
+   letter-spacing:-1px;
+   line-height:1.0;
+}
+
+
+/* ========MENU CUSTOMIZE======== */
+#menu ul {
+   width:787px;
+   margin:0 auto;
+   padding:0;
+}
+
+#menu li {
+   float:left;
+   color:#333;
+   text-align:center;
+   list-style-type:none;
+}
+
+#menu li a {
+   display:block;
+   width:150px;
+   color:#5A482B;
+   line-height:60px;
+   border-right:1px solid #D8D8D8;
+   font-family:Georgia,"MS 明朝","Hiragino Mincho Pro W3","ヒラギノ明朝 Pro W3",serif;
+   color:#3F2A0F;
+   font-weight:bold;
+   font-size:14px;
+}
+
+#menu li.home a {
+   border-left:1px solid #D8D8D8;
+    
+}
+
+#menu li a:hover {
+   color:#C94C00;
+   background:#fff url("../img/images/bg_menu.gif") 0 -60px repeat-x;
+   z-index:100;
+   
+}
+
+
+/* ========TOPICPATH CUSTOMIZE======== */
+#topicPath {
+   margin-bottom:10px;
+   font-size:11px;
+}
+
+
+
+/* ========SUBCONTENTS CUSTOMIZE======== */
+#sub .section {
+   margin-bottom:10px;
+}
+
+#sub h2 {
+   padding:3px;
+   font-size:17px;
+   font-weight:bold;
+   color:#fff;
+   padding-left:10px;
+   background:#9B0000;
+   border-bottom:1px solid #C1C1C1;
+   border-right:1px solid #C1C1C1;
+}
+
+#sub ul {
+   margin:5px 0 0 5px;
+   padding:0;
+}
+
+#sub li {
+   padding:10px 0 5px 0;
+   line-height:1.4;
+   list-style:none;
+   background:url("../img/images/bg_dotline.gif") 0 100% repeat-x;
+}
+
+#sub li a {
+   display:block;
+   padding-left:12px;
+   background:url("../img/images/bg_list.gif") 0 6px no-repeat;
+}
+
+
+/* ========PAGEOP CUSTOMIZE========= */
+#pageTop {
+   padding:20px 0;
+   text-align:right;
+   font-size:11px;
+}
+
+#pageTop a {
+   padding-left:8px;
+   background:url("/172.20.17.216/aso/img/.gif") 0 50% no-repeat;
+}
+
+
+/* ========FOOTMENU CUSTOMIZE======== */
+#footMenu ul {
+   margin:0;
+   padding:10px 0 0 0;
+   text-align:right;
+}
+
+#footMenu li {
+   display:inline;
+   margin:0 0 0 10px;
+   list-style:none;
+}
+
+#footMenu li a {
+   padding-left:10px;
+   background:url("../img/images/bg_footmenu.gif") 0 50% no-repeat;
+}
+
+
+/* ========FOOTER CUSTOMIZE======== */
+.copyright {
+   padding:30px 0;
+   font-size:11px;
+   font-style:normal;
+   color:#333;
+   text-align:center;
+}

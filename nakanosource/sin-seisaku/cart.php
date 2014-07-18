@@ -17,9 +17,9 @@ if(!(isset($_COOKIE['cartq']))){
 		//print("aaa:".$cset);
 		
 	//	$var = $_COOKIE['cartgcode'];
-	setcookie("cartgc[$cset]",$gcode);
-	setcookie("cartgsize[$cset]",$_POST['goodssize']);
-	setcookie("cartgk[$cset]",$_POST['quant']);
+	setcookie("cartgc[$cset]",$gcode,'/aso');
+	setcookie("cartgsize[$cset]",$_POST['goodssize'],'/aso');
+	setcookie("cartgk[$cset]",$_POST['quant'],'/aso');
 	
 		
 /*		print($set.$var[7]);
@@ -100,7 +100,7 @@ $dsn = 'mysql:dbname=adios;host=enzerus.com';
 <div>
 <table border="1" align=center>
 <tr bgcolor="#cccccc">
-  <th></th>
+
   <th>商品イメージ</th>
   <th>商品名</th>
   <th>価格</th>
@@ -139,7 +139,6 @@ $stmt -> execute(array($gcode,$gsize,$gsize));
 $result = $stmt->fetch(PDO::FETCH_ASSOC);
  ?>
 <tr>
-	<th></th>
 	<th><?php print("")?> </th>
     <th><?php print($result['goods']) ?></th>
     <th>&yen;<?php $price = $result['price'];  print($result['price']);?></th>
@@ -156,7 +155,9 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
 ?>
 <!--　カート　ループ　ここまで -->
-<tr class="">
+<tr class=""><td><a href="/aso/top/nakano/memberorder.php">aaaa</a></td>
+
+
                   <td colspan="5" align="right">商品合計</td>
                   <td colspan="2" align="right"><?php print($sumall)?>円</td>
                 </tr>

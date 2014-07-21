@@ -33,9 +33,9 @@ try{
 	  $acflag = 1;
 	  }else{
 		  $acflag = 0;
-	
+
 	  }
-	  
+
 
 
 if(isset($_GET["word"])){
@@ -231,4 +231,3 @@ if($result['dispflag'] == 0){
 
 
 ?>
-

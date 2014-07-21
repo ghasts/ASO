@@ -34,10 +34,10 @@ try{
 	  $acflag = 1;
 	  }else{
 		  $acflag = 0;
-	
+
 	  }
 
-	  
+
 
 if(isset($_GET["word"])){
 $word = htmlspecialchars($_GET["word"], ENT_QUOTES,"UTF-8");
@@ -232,4 +232,3 @@ if($result['dispflag'] == 0){
 
 
 ?>
-

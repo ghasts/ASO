@@ -1,7 +1,7 @@
 <?php
 session_start();
 session_regenerate_id(TRUE);
-$host = '172.20.17.216';
+$host = 'enzerus.com';
 $user = 'adios';
 $password = 'lovelive';
 $db = 'adios';
@@ -9,7 +9,7 @@ $mail = null;
 $acccode=null;
 $flg = null;
 
-$dsn = 'mysql:dbname=adios;host=172.20.17.216';
+$dsn = 'mysql:dbname=adios;host=enzerus.com';
 
 
 if(isset($_COOKIE["email"]) && isset($_COOKIE["password"])){
@@ -143,11 +143,11 @@ if(isset($_COOKIE["email"]) && isset($_COOKIE["password"])){
 
 <?php
 if(isset($_SESSION['acccode'])){
-$host = '172.20.17.216';
+/*$host = 'enzerus.com';
 $user = 'adios';
 $password = 'lovelive';
 $db = 'adios';
-$dsn = 'mysql:dbname=adios;host=172.20.17.216';
+$dsn = 'mysql:dbname=adios;host=enzerus.com';*/
 try{
 	
 	$dbh = new PDO($dsn, $user, $password);
